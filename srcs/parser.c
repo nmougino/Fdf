@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 00:58:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 18:27:24 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/23 21:52:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_data	*newelem(void)
 {
 	t_data	*ans;
 
-	ans = (t_data*)memalloc(sizeof(t_data));
+	ans = (t_data*)ft_memalloc(sizeof(t_data));
 	if (ans)
 	{
 		ans->size = 0;
@@ -33,7 +33,7 @@ static void		getdata(int *data, char **tmp)
 	i = 0;
 	while (tmp[i])
 	{
-		data[i] = atoi(tmp[i]);
+		data[i] = ft_atoi(tmp[i]);
 		free(tmp[i]);
 		tmp[i] = NULL;
 		i++;
@@ -51,10 +51,10 @@ static t_data	*extract(fd)
 	i = 0;
 	if (get_next_line(fd, &line) > 0 && (ans = newelem()))
 	{
-		tmp = strsplit(line, ' ');
+		tmp = ft_strsplit(line, ' ');
 		while (tmp[ans->size])
 			(ans->size)++;
-		ans->data = (int*)memalloc(sizeof(int) * ans->size);
+		ans->data = (int*)ft_memalloc(sizeof(int) * ans->size);
 		getdata(ans->data, tmp);
 	}
 	return (ans);
