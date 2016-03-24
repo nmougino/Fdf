@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 23:47:57 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 18:56:44 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:34:59 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libdraw.h"
 
-static int	draw_toRgb(float vh)
+static int	draw_torgb(float vh)
 {
 	if (vh < 0)
 		vh += 1.0;
@@ -27,18 +27,17 @@ static int	draw_toRgb(float vh)
 	return (0);
 }
 
-void	draw_pixel(t_img *img, t_px pt)
+void		draw_pixel(t_img *img, t_px pt)
 {
-	int 	col;
+	int	col;
 
 	col = 0;
 	if ((pt.x < img->width && pt.x >= 0) && (pt.y < img->height && pt.y >= 0))
 	{
-		col = ((draw_toRgb(pt.color + (1.0 / 3.0))) * 65536)
-			+ ((draw_toRgb(pt.color)) * 256)
-			+ (draw_toRgb(pt.color - (1.0 / 3.0)));
+		col = ((draw_torgb(pt.color + (1.0 / 3.0))) * 65536)
+			+ ((draw_torgb(pt.color)) * 256)
+			+ (draw_torgb(pt.color - (1.0 / 3.0)));
 		*((int*)(unsigned long)(img->data + ((img->size_line * (pt.y))
 						+ ((pt.x) * (img->bpp / 8))))) = col;
-	
 	}
 }

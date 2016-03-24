@@ -6,22 +6,21 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 02:00:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 18:15:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:36:50 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** Cette librairie a pour objet d'offrir un certain nombre
 ** de fonctions compatibles mlx.
-**
 ** Elle sera utilisee pour la premiere fois par le programme fdf.
 */
 
 #ifndef LIBDRAW_H
 # define LIBDRAW_H
 
-#include "mlx.h"
-#include "libft.h"
+# include "mlx.h"
+# include "libft.h"
 
 typedef struct	s_img
 {

@@ -6,7 +6,7 @@
 #    By: nmougino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 01:02:57 by nmougino          #+#    #+#              #
-#    Updated: 2016/03/23 21:54:21 by nmougino         ###   ########.fr        #
+#    Updated: 2016/03/24 17:29:49 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+glu: fclean $(NAME)
 
 re: fclean all
 

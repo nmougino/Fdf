@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 00:58:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 21:52:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:42:06 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_data	*newelem(void)
 	return (ans);
 }
 
-static void		getdata(int *data, char **tmp)
+static void		parser_getdata(int *data, char **tmp)
 {
 	int	i;
 
@@ -55,22 +55,30 @@ static t_data	*extract(fd)
 		while (tmp[ans->size])
 			(ans->size)++;
 		ans->data = (int*)ft_memalloc(sizeof(int) * ans->size);
-		getdata(ans->data, tmp);
+		parser_getdata(ans->data, tmp);
 	}
 	return (ans);
 }
 
-t_data	*parser(int fd)
+t_data			*parser(char *file)
 {
 	t_data	*fst;
 	t_data	*cur;
+	int		fd;
 
-	fst = extract(fd);
-	cur = fst;
-	while (cur)
+	fst = NULL;
+	cur = NULL;
+	if ((fd = open(file, O_RDONLY)) > 0)
 	{
-		cur->next = extract(fd);
-		cur = cur->next;
+		fst = extract(fd);
+		fst->file = ft_strdup(file);
+		cur = fst;
+		while (cur)
+		{
+			cur->next = extract(fd);
+			cur = cur->next;
+		}
+		close(fd);
 	}
 	return (fst);
 }

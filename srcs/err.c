@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_new_img.c                                     :+:      :+:    :+:   */
+/*   err.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 01:03:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/24 17:32:55 by nmougino         ###   ########.fr       */
+/*   Created: 2016/03/24 17:18:46 by nmougino          #+#    #+#             */
+/*   Updated: 2016/03/24 17:19:14 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libdraw.h"
+#include "fdf.h"
 
-t_img	*draw_new_img(void *mlx, int width, int height)
+void	err_open(int i)
 {
-	t_img	*ans;
+	ft_putendl("\033[1m\033[31m *** IMPOSSIBLE D'OUVRIR LE FICHIER");
+	ft_putstr("     -> argument : ");
+	ft_putnbr(i);
+	ft_putendl("\033[0m");
+}
 
-	ans = (t_img*)malloc(sizeof(t_img));
-	if (!ans)
-		return (NULL);
-	ans->img = mlx_new_image(mlx, width, height);
-	ans->width = width;
-	ans->height = height;
-	ans->data = mlx_get_data_addr(ans->img, &(ans->bpp), &(ans->size_line),
-			&(ans->endian));
-	return (ans);
+void	err_nodata(int i)
+{
+	ft_putendl("\033[1m\033[31m *** AUCUNE DONNEES");
+	ft_putstr("     -> argument : ");
+	ft_putnbr(i);
+	ft_putendl("\033[0m");
 }

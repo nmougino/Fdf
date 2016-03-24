@@ -6,17 +6,17 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 23:41:15 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 19:54:56 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:36:08 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libdraw.h"
 
 /*
- ** Tracer une ligne en degrade
- */
+** Tracer une ligne en degrade
+*/
 
-void			draw_ver_line(t_img *img, t_line line)
+void	draw_ver_line(t_img *img, t_line line)
 {
 	t_px	cur;
 	t_px	end;
@@ -31,7 +31,7 @@ void			draw_ver_line(t_img *img, t_line line)
 	}
 }
 
-void			draw_hor_line(t_img *img, t_line line)
+void	draw_hor_line(t_img *img, t_line line)
 {
 	t_px	cur;
 	t_px	end;
@@ -46,7 +46,7 @@ void			draw_hor_line(t_img *img, t_line line)
 	}
 }
 
-void			draw_bresenham(t_img *img, t_line line)
+void	draw_bresenham(t_img *img, t_line line)
 {
 	int		e;
 	t_px	inc;
@@ -70,15 +70,13 @@ void			draw_bresenham(t_img *img, t_line line)
 		}
 		cur.x += inc.x;
 	}
-
 }
 
-void			draw_line(t_img *img, t_px *src, t_px *dst)
+void	draw_line(t_img *img, t_px *src, t_px *dst)
 {
 	t_line	line;
 
 	line = draw_new_line(src, dst);
-
 	if (line.dx <= 1 && line.dy <= 1)
 	{
 		draw_pixel(img, *src);

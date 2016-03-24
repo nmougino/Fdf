@@ -6,7 +6,7 @@
 #    By: nmougino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 01:02:57 by nmougino          #+#    #+#              #
-#    Updated: 2016/03/23 21:34:08 by nmougino         ###   ########.fr        #
+#    Updated: 2016/03/24 17:43:48 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ glu:
 	@rm *.o
 
 use: glu
-	gcc $(CFLAGS) $(LIB)/*.a main.c $(NAME) -I$(INC) $(MLXFLAGS)
+	gcc $(CFLAGS) $(LIB)/*.a maintest.c $(NAME) -I$(INC) $(MLXFLAGS)
 
 all: $(NAME)
 
