@@ -18,6 +18,13 @@
 # include "get_next_line.h"
 # include "mlx.h"
 
+# define X0 10
+# define Y0 500
+
+# define XA 15
+# define YA 5
+# define ZA 15
+
 typedef struct		s_meta
 {
 	void			*mlx;
