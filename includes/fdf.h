@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/27 04:12:56 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/27 05:56:07 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include "get_next_line.h"
 # include "mlx.h"
 
-# define X0 10
+# define X0 50
 # define Y0 500
 
-# define XA 15
-# define YA 5
-# define ZA 15
+# define XA 30
+# define YA 10
+# define ZA 1
 
 typedef struct		s_meta
 {
