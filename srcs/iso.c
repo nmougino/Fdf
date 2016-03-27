@@ -1,5 +1,7 @@
 #include "libdraw.h"
 
+lala
+
 void	iso_free(t_pix *ptr)
 {
 	if (ptr != NULL)
