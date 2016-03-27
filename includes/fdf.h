@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/24 17:45:02 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/27 04:12:56 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void				err_open(int i);
 void				err_nodata(int i);
 
 t_data				*parser(char *file);
+
+void				iso(t_meta *meta, t_data *data);
 
 #endif

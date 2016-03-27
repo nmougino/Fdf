@@ -6,7 +6,7 @@
 #    By: nmougino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 01:02:57 by nmougino          #+#    #+#              #
-#    Updated: 2016/03/24 17:29:49 by nmougino         ###   ########.fr        #
+#    Updated: 2016/03/27 05:01:37 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,17 +36,19 @@ MLXFLAGS = -framework OpenGL -framework AppKit
 
 CFLAGS = -Wall -Wextra -Werror
 
-all:
+$(NAME):
+	@echo "$(GRE)$(GRA)COMPILATION FDF$(DEF)"
+	gcc $(CFLAGS) -o $(NAME) $(SRC)/*.c -I$(INC) $(MLXFLAGS) $(LIB)/*.a
+	
+all: lib
+	make $(NAME)
+
+lib:
 	@make -C libft/
 	@mv libft/libft.a $(LIB)
 	@make -C libdraw/
 	@mv libdraw/libdraw.a $(LIB)
-	@make $(NAME)
 
-$(NAME):
-	@echo "$(GRE)$(GRA)COMPILATION FDF$(DEF)"
-	@gcc $(CFLAGS) -o $(NAME) $(SRC)/*.c -I$(INC) $(MLXFLAGS) $(LIB)/*.a
-	
 clean:
 	rm -f *.o
 
@@ -57,4 +59,4 @@ glu: fclean $(NAME)
 
 re: fclean all
 
-.PHONY: all glu use clean fclean re
+.PHONY: $(NAME) all glu lib use clean fclean re

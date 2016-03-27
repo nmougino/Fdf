@@ -1,46 +1,66 @@
-#include "libdraw.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   iso.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
+/*   Updated: 2016/03/27 05:20:14 by nmougino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	iso_free(t_pix *ptr)
+#include "fdf.h"
+
+static void	iso_free(t_px *ptr)
 {
 	if (ptr != NULL)
 		free(ptr);
 }
 
-t_pix	iso_getcurp(t_data *data, int x, int y, int *z)
+static t_px	iso_getcurp(t_data *data, size_t x, int y, int *z)
 {
-	t_pix	curp;
+	t_px	curp;
 
-	*z = data.data[x];
-	pcur.x = X0 + (XA * x) + (XA * y) + (ZA * z);
-	pcur.y = Y0 + (YA * x) + (YA * y) + (ZA * z);
-	pcur.color = 0.333 (float)(z / 10);
+	*z = data->data[x];
+	curp.x = X0 + (XA * x) + (XA * y) + (ZA * *z);
+	curp.y = Y0 + (YA * x) + (YA * y) + (ZA * *z);
+	curp.color = 0.333 + (float)(*z / 10);
 	return (curp);
 }
 
-void	isometrie(t_meta *meta, t_data data)
+void		iso(t_meta *meta, t_data *data)
 {
-	t_pix	*prev_line;
-	t_pix	*cur_line;
+	t_px	**line;
 	int		y;
 	int		z;
+	size_t	i;
+	size_t	prevsize;
 
-	prev_line = NULL;
 	y = 0;
-	while (data && ((cur_line = (t_pix*)malloc(sizeof(t_pix) * (data.size + 1)))))
+	i = 0;
+	prevsize = 0;
+	if ((line = (t_px**)malloc(sizeof(t_px*) * 2)))
 	{
-		cur_line[data.size] = 0;
-		while (data.size > 0)
+		line[0] = NULL;
+		while (data && ((line[1] = (t_px*)malloc(sizeof(t_px) * (data->size + 1)))))
 		{
-			cur_line[data.size - 1] = iso_getcurp(*data, data.size - 1, y, &z);
-			data.size--;
+			i = 0;
+			while (i < data->size)
+			{
+				line[1][i] = iso_getcurp(data, i, y, &z);
+				if (i > 0)
+					draw_line(meta->img, line[1] + i, line[1] + i - 1);
+				if (i < prevsize)
+					draw_line(meta->img, line[1] + i, line[0] + i);
+				i++;
+			}
+			iso_free(line[0]);
+			line[0] = line[1];
+			prevsize = data->size;
+			data = data->next;
+			y++;
 		}
-		disp_x(cur_line);
-		disp_y(cur_line, prev_line);
-		iso_free(prev_line);
-		prev_line = cur_line;
-		data = *(data.next);
-		y++;
+		iso_free(line[0]);
 	}
-	iso_free(cur_line);
-	iso_free(prev_line);
 }
