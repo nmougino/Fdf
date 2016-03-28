@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 04:46:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 07:08:01 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				err_nodata(int i);
 
 t_data				*parser(char *file);
 
-void				iso(t_meta *meta, t_data *data);
+void				iso(t_meta *meta);
 
 int					kswitch(int kc, void *meta);
 int					ctrl_exe(void *param);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 05:08:58 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 07:07:43 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ static void	iso_loop(t_meta *meta, t_data *data, t_px **line)
 	}
 }
 
-void		iso(t_meta *meta, t_data *data)
+void		iso(t_meta *meta)
 {
+	t_data	*data;
 	t_px	**line;
 
+	data = meta->data[meta->arg];
 	if ((line = (t_px**)malloc(sizeof(t_px*) * 2)))
 	{
 		line[0] = NULL;
