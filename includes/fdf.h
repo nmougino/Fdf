@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 07:42:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 09:33:52 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "libdraw.h"
 # include "get_next_line.h"
 # include "mlx.h"
+
+# define WINX 1000
+# define WINY 1000
 
 # define X0 50
 # define Y0 500

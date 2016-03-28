@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 08:05:14 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 09:33:20 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static t_meta	*init_meta(int argc, char **argv)
 	{
 		main_getdata(data, argc, argv);
 		meta->mlx = mlx_init();
-		meta->win = mlx_new_window(meta->mlx, 1000, 1000, "fdf");
-		meta->img = draw_new_img(meta->mlx, 1000, 1000);
+		meta->win = mlx_new_window(meta->mlx, WINX, WINY, "fdf");
+		meta->img = draw_new_img(meta->mlx, WINX, WINY);
 		meta->data = data;
 		meta->arg = 0;
 		while (i < 127)
