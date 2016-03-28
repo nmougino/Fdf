@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 04:48:31 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 05:01:40 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,10 @@ int			main(int argc, char **argv)
 	if (argc > 1)
 	{
 		meta = init_meta(argc);
-
-		ft_putendl("recup donnees");
 		main_getdata(data, meta, argv);
-
-		ft_putendl("process iso");
 		iso(meta, data[0]);
-		
-		ft_putendl("et maintenant affichage");
 		mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
-
-		ft_putendl("chargement des commandes");
-		init_hooks(meta);
-
+		//init_hooks(meta);
 		mlx_loop(meta->mlx);
 	}
 	return (0);
