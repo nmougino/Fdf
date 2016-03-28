@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 11:08:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 11:12:28 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ t_data				*parser(char *file);
 
 void				iso(t_meta *meta);
 
-int					kswitch(int kc, void *meta);
-int					ctrl_exe(void *param);
 void				init_hooks(t_meta *meta);
 
 void				ctrl_exit(t_meta *meta);
