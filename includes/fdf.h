@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/27 05:56:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 04:46:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_meta
 	void			*win;
 	t_img			*img;
 	int				arg;
+	int				ktab[127];
 }					t_meta;
 
 typedef struct		s_data
@@ -49,5 +50,9 @@ void				err_nodata(int i);
 t_data				*parser(char *file);
 
 void				iso(t_meta *meta, t_data *data);
+
+int					kswitch(int kc, void *meta);
+int					ctrl_exe(void *param);
+void				init_hooks(t_meta *meta);
 
 #endif
