@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 05:45:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 06:57:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 08:07:46 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ctrl_exit(t_meta *meta)
 	free(meta->img->data);
 	free(meta->img->img);
 	free(meta->img);
-	free(meta->ktab);
 	while (meta->data[i])
 	{
 		free(meta->data[i]->data);
