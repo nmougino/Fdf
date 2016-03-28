@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_new_line.c                                    :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 17:16:46 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 12:18:35 by nmougino         ###   ########.fr       */
+/*   Created: 2016/03/28 21:37:23 by nmougino          #+#    #+#             */
+/*   Updated: 2016/03/28 21:37:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdraw.h"
-
-t_line	draw_new_line(t_px *src, t_px *dst)
+float	ft_sqrt(float nb)
 {
-	t_line	ans;
+	float	xhalf;
+	int		i;
 
-	ans.src = *src;
-	ans.dst = *dst;
-	ans.dx = ft_abs(ans.dst.x - ans.src.x);
-	ans.dy = ft_abs(ans.dst.y - ans.src.y);
-	ans.n = (ft_abs(ans.dx) > ft_abs(ans.dy)) ? ft_abs(ans.dx) : ft_abs(ans.dy);
-	return (ans);
+	i = *(int*)&nb;
+	xhalf = 0.5f * nb;
+	i = 0x5f3759df - (i >> 1);
+	nb = *(float*)&i;
+	nb = nb * (1.5f - xhalf * nb * nb);
+	return (nb);
 }

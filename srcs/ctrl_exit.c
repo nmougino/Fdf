@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_new_line.c                                    :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 17:16:46 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 12:18:35 by nmougino         ###   ########.fr       */
+/*   Created: 2016/03/28 05:45:05 by nmougino          #+#    #+#             */
+/*   Updated: 2016/03/28 08:07:46 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdraw.h"
+#include "fdf.h"
 
-t_line	draw_new_line(t_px *src, t_px *dst)
+void	ctrl_exit(t_meta *meta)
 {
-	t_line	ans;
+	int	i;
 
-	ans.src = *src;
-	ans.dst = *dst;
-	ans.dx = ft_abs(ans.dst.x - ans.src.x);
-	ans.dy = ft_abs(ans.dst.y - ans.src.y);
-	ans.n = (ft_abs(ans.dx) > ft_abs(ans.dy)) ? ft_abs(ans.dx) : ft_abs(ans.dy);
-	return (ans);
+	i = 0;
+	free(meta->mlx);
+	free(meta->win);
+	free(meta->img->data);
+	free(meta->img->img);
+	free(meta->img);
+	while (meta->data[i])
+	{
+		free(meta->data[i]->data);
+		free(meta->data[i]->file);
+		free(meta->data[i]);
+		i++;
+	}
+	free(meta->data);
+	exit(0);
 }

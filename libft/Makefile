@@ -6,7 +6,7 @@
 #    By: nmougino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 01:02:57 by nmougino          #+#    #+#              #
-#    Updated: 2016/03/21 19:40:23 by nmougino         ###   ########.fr        #
+#    Updated: 2016/03/28 21:41:36 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRC =	ft_abs.c \
 		ft_putnbrendl_fd.c \
 		ft_putstr.c \
 		ft_putstr_fd.c \
+		ft_sqrt.c \
 		ft_stradd.c \
 		ft_strcat.c \
 		ft_strchr.c \

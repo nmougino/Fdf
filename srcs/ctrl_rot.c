@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_new_line.c                                    :+:      :+:    :+:   */
+/*   ctrl_rot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 17:16:46 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 12:18:35 by nmougino         ###   ########.fr       */
+/*   Created: 2016/03/28 16:44:20 by nmougino          #+#    #+#             */
+/*   Updated: 2016/03/28 22:51:59 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdraw.h"
+#include "fdf.h"
 
-t_line	draw_new_line(t_px *src, t_px *dst)
+void	ctrl_rot_lr(t_meta *meta, int p)
 {
-	t_line	ans;
-
-	ans.src = *src;
-	ans.dst = *dst;
-	ans.dx = ft_abs(ans.dst.x - ans.src.x);
-	ans.dy = ft_abs(ans.dst.y - ans.src.y);
-	ans.n = (ft_abs(ans.dx) > ft_abs(ans.dy)) ? ft_abs(ans.dx) : ft_abs(ans.dy);
-	return (ans);
+	int a = p;
+	a++;
+	meta->pta.x *= -1;
+	meta->pta.x *= -1;
+	ft_putendl("inversion");
 }

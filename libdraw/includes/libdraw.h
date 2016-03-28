@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 02:00:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/24 17:36:50 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 13:01:26 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,13 @@ typedef	struct	s_line
 	t_px		dst;
 	int			dx;
 	int			dy;
+	int			n;
 }				t_line;
 
 void			draw_clear_img(t_img *img);
 
 float			draw_line_curcolor(t_line line, t_px cur);
 
-void			draw_ver_line(t_img *img, t_line line);
-void			draw_hor_line(t_img *img, t_line line);
-void			draw_bresenham(t_img *img, t_line line);
 void			draw_line(t_img *img, t_px *src, t_px *dst);
 
 t_img			*draw_new_img(void *mlx, int width, int height);
