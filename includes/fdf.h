@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 15:55:17 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 23:05:30 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct		s_meta
 	t_data			**data;
 	t_px			pto;
 	t_px			pta;
+	t_px			ptaa;
 	int				coefz;
 }					t_meta;
 
@@ -68,5 +69,7 @@ t_meta				*meta_init(int argc, char **argv);
 
 void				ctrl_trans_ud(t_meta *meta, int p);
 void				ctrl_trans_lr(t_meta *meta, int p);
+
+void				ctrl_rot_lr(t_meta *meta, int p);
 
 #endif

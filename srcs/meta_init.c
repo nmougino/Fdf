@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 15:55:15 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 23:02:27 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ t_meta			*meta_init(int argc, char **argv)
 		meta->pto.y = Y0;
 		meta->pta.x = XA;
 		meta->pta.y = YA;
+		meta->ptaa.x = 1;
+		meta->ptaa.y = 1;
+
 		meta->coefz = ZA;
 
 		while (i < 127)
