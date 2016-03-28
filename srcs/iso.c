@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 15:35:38 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 15:55:13 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ static t_px	iso_getcurp(t_meta *meta, t_data *data, size_t x, int y)
 	int		z;
 
 	z = data->data[x];
-	curp.x = meta->pto.x + (XA * x) + (XA * y);
-	curp.y = meta->pto.y + (-YA * x) + (YA * y) + (-ZA * z);
+	curp.x = meta->pto.x + (meta->pta.x * x) + (meta->pta.x * y);
+	curp.y = meta->pto.y + (-(meta->pta.y) * x) + (meta->pta.y * y) +
+		(-z * meta->coefz);
 	curp.color = 0.333 - ((float)z / 100);
 	return (curp);
 }
