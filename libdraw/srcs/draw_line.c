@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 23:41:15 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 13:00:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 21:46:06 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	draw_the_line(float pasx, float pasy, t_img *img, t_line line)
 		cur.x = line.src.x + (pasx * i);
 		cur.y = line.src.y + (pasy * i);
 		cur.color = draw_line_curcolor(line, cur);
-		//cur.color = 
 		draw_pixel(img, cur);
 		i++;
 	}
