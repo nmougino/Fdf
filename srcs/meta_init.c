@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 09:54:54 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 10:14:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_meta			*meta_init(int argc, char **argv)
 		meta->img = draw_new_img(meta->mlx, WINX, WINY);
 		meta->data = data;
 		meta->arg = 0;
+		meta->pto.x = X0;
+		meta->pto.y = Y0;
 		while (i < 127)
 			meta->ktab[i++] = 0;
 	}
