@@ -6,31 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 05:54:30 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 07:03:19 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_meta		*init_meta()
-{
-	t_meta	*meta;
-	int		i;
-
-	i = 0;
-	meta = (t_meta*)ft_memalloc(sizeof(t_meta));
-	if (meta)
-	{
-		meta->mlx = mlx_init();
-		meta->win = mlx_new_window(meta->mlx, 1000, 1000, "fdf");
-		meta->img = draw_new_img(meta->mlx, 1000, 1000);
-		while (i < 127)
-			meta->ktab[i++] = 0;
-	}
-	return (meta);
-}
-
-static void	main_getdata(t_data *data[], int argc, char **argv)
+static void		main_getdata(t_data **data, int argc, char **argv)
 {
 	int		i;
 
@@ -44,21 +26,41 @@ static void	main_getdata(t_data *data[], int argc, char **argv)
 	data[i - 1] = NULL;
 }
 
-int			main(int argc, char **argv)
+static t_meta	*init_meta(int argc, char **argv)
 {
 	t_meta	*meta;
-	t_data	*data[argc];
+	t_data	**data;
+	int		i;
+
+	i = 0;
+	if ((meta = (t_meta*)ft_memalloc(sizeof(t_meta))) &&
+			(data = (t_data**)ft_memalloc(sizeof(t_data*) * argc)))
+	{
+		main_getdata(data, argc, argv);
+		meta->mlx = mlx_init();
+		meta->win = mlx_new_window(meta->mlx, 1000, 1000, "fdf");
+		meta->img = draw_new_img(meta->mlx, 1000, 1000);
+		meta->data = data;
+		meta->arg = 0;
+		while (i < 127)
+			meta->ktab[i++] = 0;
+	}
+	return (meta);
+}
+
+int				main(int argc, char **argv)
+{
+	t_meta	*meta;
 
 	meta = NULL;
 	if (argc > 1)
 	{
-		meta = init_meta();
+		meta = init_meta(argc, argv);
 
 		ft_putendl("recup donnees");
-		main_getdata(data, argc, argv);
 
 		ft_putendl("process iso");
-		iso(meta, data[0]);
+		iso(meta, meta->data[meta->arg]);
 		
 		ft_putendl("et maintenant affichage");
 		mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
