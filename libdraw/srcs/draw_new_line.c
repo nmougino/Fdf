@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 17:16:46 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/23 17:49:06 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 12:18:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ t_line	draw_new_line(t_px *src, t_px *dst)
 	ans.dst = *dst;
 	ans.dx = ft_abs(ans.dst.x - ans.src.x);
 	ans.dy = ft_abs(ans.dst.y - ans.src.y);
+	ans.n = (ft_abs(ans.dx) > ft_abs(ans.dy)) ? ft_abs(ans.dx) : ft_abs(ans.dy);
 	return (ans);
 }

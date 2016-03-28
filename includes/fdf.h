@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 11:12:28 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 12:53:50 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define X0U 10
 # define X0U 10
 
-# define XA 30
-# define YA 10
+# define XA 15
+# define YA 5
 # define ZA 1
 
 typedef struct		s_data

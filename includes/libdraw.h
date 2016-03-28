@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 02:00:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/24 17:36:50 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 12:13:51 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef	struct	s_line
 	t_px		dst;
 	int			dx;
 	int			dy;
+	int			n;
 }				t_line;
 
 void			draw_clear_img(t_img *img);
