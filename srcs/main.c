@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 04:48:31 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 05:54:30 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_meta		*init_meta(int argc)
+t_meta		*init_meta()
 {
 	t_meta	*meta;
 	int		i;
@@ -23,7 +23,6 @@ t_meta		*init_meta(int argc)
 	{
 		meta->mlx = mlx_init();
 		meta->win = mlx_new_window(meta->mlx, 1000, 1000, "fdf");
-		meta->arg = argc;	
 		meta->img = draw_new_img(meta->mlx, 1000, 1000);
 		while (i < 127)
 			meta->ktab[i++] = 0;
@@ -31,31 +30,32 @@ t_meta		*init_meta(int argc)
 	return (meta);
 }
 
-static void	main_getdata(t_data *data[], t_meta *meta, char **argv)
+static void	main_getdata(t_data *data[], int argc, char **argv)
 {
 	int		i;
 
 	i = 1;
-	while (i < meta->arg)
+	while (i < argc)
 	{
 		if (!(data[i - 1] = parser(argv[i])))
 			err_open(i);
 		i++;
 	}
+	data[i - 1] = NULL;
 }
 
 int			main(int argc, char **argv)
 {
 	t_meta	*meta;
-	t_data	*data[argc - 1];
+	t_data	*data[argc];
 
 	meta = NULL;
 	if (argc > 1)
 	{
-		meta = init_meta(argc);
+		meta = init_meta();
 
 		ft_putendl("recup donnees");
-		main_getdata(data, meta, argv);
+		main_getdata(data, argc, argv);
 
 		ft_putendl("process iso");
 		iso(meta, data[0]);
