@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 10:03:53 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 11:08:57 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include "get_next_line.h"
 # include "mlx.h"
 
-# define WINX 1000
-# define WINY 1000
+# define WINX 1980
+# define WINY 1080
 
 # define X0 50
 # define Y0 500
+# define X0U 10
+# define X0U 10
 
 # define XA 30
 # define YA 10
@@ -63,5 +65,8 @@ void				init_hooks(t_meta *meta);
 void				ctrl_exit(t_meta *meta);
 
 t_meta				*meta_init(int argc, char **argv);
+
+void				ctrl_trans_ud(t_meta *meta, int p);
+void				ctrl_trans_lr(t_meta *meta, int p);
 
 #endif
