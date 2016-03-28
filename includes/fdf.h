@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 09:33:52 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 09:56:38 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ int					ctrl_exe(void *param);
 void				init_hooks(t_meta *meta);
 
 void				ctrl_exit(t_meta *meta);
+
+t_meta				*meta_init(int argc, char **argv);
 
 #endif

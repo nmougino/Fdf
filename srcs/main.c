@@ -6,47 +6,11 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 09:33:20 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 09:55:18 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void		main_getdata(t_data **data, int argc, char **argv)
-{
-	int		i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!(data[i - 1] = parser(argv[i])))
-			err_open(i);
-		i++;
-	}
-	data[i - 1] = NULL;
-}
-
-static t_meta	*init_meta(int argc, char **argv)
-{
-	t_meta	*meta;
-	t_data	**data;
-	int		i;
-
-	i = 0;
-	if ((meta = (t_meta*)ft_memalloc(sizeof(t_meta))) &&
-			(data = (t_data**)ft_memalloc(sizeof(t_data*) * argc)))
-	{
-		main_getdata(data, argc, argv);
-		meta->mlx = mlx_init();
-		meta->win = mlx_new_window(meta->mlx, WINX, WINY, "fdf");
-		meta->img = draw_new_img(meta->mlx, WINX, WINY);
-		meta->data = data;
-		meta->arg = 0;
-		while (i < 127)
-			meta->ktab[i++] = 0;
-	}
-	return (meta);
-}
 
 int				main(int argc, char **argv)
 {
@@ -55,7 +19,7 @@ int				main(int argc, char **argv)
 	meta = NULL;
 	if (argc > 1)
 	{
-		meta = init_meta(argc, argv);
+		meta = meta_init(argc, argv);
 		iso(meta);
 		mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
 		init_hooks(meta);
