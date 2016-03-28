@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 07:08:01 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/28 07:42:57 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@
 # define YA 10
 # define ZA 1
 
-typedef struct		s_meta
-{
-	void			*mlx;
-	void			*win;
-	t_img			*img;
-	int				arg;
-	int				ktab[127];
-}					t_meta;
-
 typedef struct		s_data
 {
 	int				*data;
@@ -41,6 +32,16 @@ typedef struct		s_data
 	char			*file;
 	struct s_data	*next;
 }					t_data;
+
+typedef struct		s_meta
+{
+	void			*mlx;
+	void			*win;
+	t_img			*img;
+	int				ktab[127];
+	int				arg;
+	t_data			**data;
+}					t_meta;
 
 void				datafree(t_data **fst);
 
@@ -54,5 +55,7 @@ void				iso(t_meta *meta);
 int					kswitch(int kc, void *meta);
 int					ctrl_exe(void *param);
 void				init_hooks(t_meta *meta);
+
+void				ctrl_exit(t_meta *meta);
 
 #endif
