@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 23:05:30 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/29 17:35:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@
 # define YA 5
 # define ZA 1
 
+# define K_ESC 53
+# define K_UP 126
+# define K_DO 125
+# define K_LE 123
+# define K_RI 124
+# define K_Q 12
+# define K_C 8
+# define K_P 35
+# define K_B 11
+# define K_H 4
+# define K_J 38
+# define K_MAJG 0x4b
+# define K_PLUS 69
+# define K_MIN 78
+# define K_DIV 75
+# define K_MUL 67
+# define K_CHEVG 43
+# define K_CHEVD 47
+
+
 typedef struct		s_data
 {
 	int				*data;
@@ -50,12 +70,14 @@ typedef struct		s_meta
 	t_px			pta;
 	t_px			ptaa;
 	int				coefz;
+	t_px			graph;
 }					t_meta;
 
 void				datafree(t_data **fst);
 
 void				err_open(int i);
 void				err_nodata(int i);
+void				err_input(void);
 
 t_data				*parser(char *file);
 
@@ -71,5 +93,9 @@ void				ctrl_trans_ud(t_meta *meta, int p);
 void				ctrl_trans_lr(t_meta *meta, int p);
 
 void				ctrl_rot_lr(t_meta *meta, int p);
+
+void				ctrl_npfile(t_meta *meta, int p);
+
+void				ctrl_hight(t_meta *meta, int p);
 
 #endif

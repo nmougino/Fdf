@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 09:55:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/29 16:39:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int				main(int argc, char **argv)
 	if (argc > 1)
 	{
 		meta = meta_init(argc, argv);
-		iso(meta);
-		mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
 		init_hooks(meta);
 		mlx_loop(meta->mlx);
 	}
+	else
+		err_input();
 	return (0);
 }
 

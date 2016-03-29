@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/28 23:05:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/29 17:37:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@ static int	kon(int kc, void *param)
 
 	meta = (t_meta*)param;
 	u = 0;
-	if (kc < 0 || kc > 126)
+	if (kc == K_CHEVD)
+		ctrl_npfile(meta, 1);
+	else if (kc == K_CHEVG)
+		ctrl_npfile(meta, -1);
+	else if (kc == K_P)
+		meta->graph.x = (meta->graph.x == 0) ? 1 : 0;
+	else if (kc == K_C)
+		meta->graph.y = (meta->graph.y == 0) ? 1 : 0;
+	else if (kc < 0 || kc > 126)
 		return (0);
 	meta->ktab[kc] = 1;
 	return (0);
@@ -43,22 +51,21 @@ static int	ctrl_exe(void *param)
 	t_meta	*meta;
 
 	meta = (t_meta*)param;
-	meta->ptaa.x *= -1;
-	meta->ptaa.y *= -1;
 	(meta->ktab[53] == 1 || meta->ktab[12] == 1) ? ctrl_exit(meta) : 0;
-	(meta->ktab[126] == 1) ? ctrl_trans_ud(meta, 1) : 0;
-	(meta->ktab[125] == 1) ? ctrl_trans_ud(meta, -1) : 0;
-	(meta->ktab[123] == 1) ? ctrl_trans_lr(meta, 1) : 0;
-	(meta->ktab[124] == 1) ? ctrl_trans_lr(meta, -1) : 0;
-	//(meta->ktab[0] == 1) ? ctrl_rot_lr(meta, 1) : 0;
-	//(meta->ktab[2] == 1) ? ctrl_rot_lr(meta, -1) : 0;
+	(meta->ktab[K_UP] == 1) ? ctrl_trans_ud(meta, 1) : 0;
+	(meta->ktab[K_DO] == 1) ? ctrl_trans_ud(meta, -1) : 0;
+	(meta->ktab[K_LE] == 1) ? ctrl_trans_lr(meta, 1) : 0;
+	(meta->ktab[K_RI] == 1) ? ctrl_trans_lr(meta, -1) : 0;
+	(meta->ktab[K_H] == 1 && meta->ktab[K_J] == 0) ? ctrl_hight(meta, 1) : 0;
+	(meta->ktab[K_H] == 0 && meta->ktab[K_J] == 1) ? ctrl_hight(meta, -1) : 0;
 	//(meta->ktab[] == 1) ? ctrl_zoomi(meta) : 0;
 	//(meta->ktab[] == 1) ? ctrl_zoomo(meta) : 0;
-	//(meta->ktab[] == 1) ? ctrl_npfile(meta, 1) : 0; //next prev file
-	//(meta->ktab[] == 1) ? ctrl_npfile(meta, 0) : 0;
+	//(meta->ktab[47] == 1) ? ctrl_npfile(meta, 1) : 0; //next prev file
+	//(meta->ktab[43] == 1) ? ctrl_npfile(meta, -1) : 0;
 	draw_clear_img(meta->img);
 	iso(meta);
 	mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
+	mlx_string_put(meta->mlx, meta->win, 2, 2, 0x00FF00, meta->data[meta->arg]->file);
 	return (0);
 }
 
