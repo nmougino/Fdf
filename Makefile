@@ -6,7 +6,7 @@
 #    By: nmougino <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 01:02:57 by nmougino          #+#    #+#              #
-#    Updated: 2016/03/27 05:01:37 by nmougino         ###   ########.fr        #
+#    Updated: 2016/03/29 16:04:40 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,8 @@ lib:
 	@mv libft/libft.a $(LIB)
 	@make -C libdraw/
 	@mv libdraw/libdraw.a $(LIB)
+	@make -C minilibx_macos
+	@mv minilibx_macos/libmlx.a $(LIB)
 
 clean:
 	rm -f *.o
