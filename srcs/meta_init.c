@@ -26,6 +26,19 @@ static void		getdata(t_data **data, int argc, char **argv)
 	data[i - 1] = NULL;
 }
 
+t_meta			*meta_init(t_meta *meta)
+{
+	meta->pto.x = X0;
+	meta->pto.y = Y0;
+	meta->pta.x = XA;
+	meta->pta.y = YA;
+	meta->ptaa.x = 1;
+	meta->ptaa.y = 1;
+	meta->graph.x = 0;
+	meta->graph.y = 0;
+	meta->coefz = ZA;
+}
+
 t_meta			*meta_init(int argc, char **argv)
 {
 	t_meta	*meta;
@@ -42,16 +55,7 @@ t_meta			*meta_init(int argc, char **argv)
 		meta->img = draw_new_img(meta->mlx, WINX, WINY);
 		meta->data = data;
 		meta->arg = 0;
-		meta->pto.x = X0;
-		meta->pto.y = Y0;
-		meta->pta.x = XA;
-		meta->pta.y = YA;
-		meta->ptaa.x = 1;
-		meta->ptaa.y = 1;
-		meta->graph.x = 0;
-		meta->graph.y = 0;
-		meta->coefz = ZA;
-
+		meta_init(meta);
 		while (i < 127)
 			meta->ktab[i++] = 0;
 	}

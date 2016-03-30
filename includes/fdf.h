@@ -88,6 +88,7 @@ void				init_hooks(t_meta *meta);
 void				ctrl_exit(t_meta *meta);
 
 t_meta				*meta_init(int argc, char **argv);
+t_meta				*meta_reset(t_meta *meta);
 
 void				ctrl_trans_ud(t_meta *meta, int p);
 void				ctrl_trans_lr(t_meta *meta, int p);

@@ -41,6 +41,8 @@ static int	koff(int kc, void *param)
 
 	meta = (t_meta*)param;
 	u = 0;
+	if (kc == K_ESP)
+		meta_reset(meta);
 	if (kc < 0 || kc > 126)
 		return (0);
 	meta->ktab[kc] = 0;
