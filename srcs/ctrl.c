@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/29 17:37:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/30 03:04:57 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	kon(int kc, void *param)
 
 	meta = (t_meta*)param;
 	u = 0;
+	(kc == K_ESC || kc == K_Q) ? ctrl_exit(meta) : 0;
 	if (kc == K_CHEVD)
 		ctrl_npfile(meta, 1);
 	else if (kc == K_CHEVG)
@@ -51,7 +52,6 @@ static int	ctrl_exe(void *param)
 	t_meta	*meta;
 
 	meta = (t_meta*)param;
-	(meta->ktab[53] == 1 || meta->ktab[12] == 1) ? ctrl_exit(meta) : 0;
 	(meta->ktab[K_UP] == 1) ? ctrl_trans_ud(meta, 1) : 0;
 	(meta->ktab[K_DO] == 1) ? ctrl_trans_ud(meta, -1) : 0;
 	(meta->ktab[K_LE] == 1) ? ctrl_trans_lr(meta, 1) : 0;

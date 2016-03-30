@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:12:40 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/29 16:27:55 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/30 02:56:59 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ inline void	ctrl_npfile(t_meta *meta, int p)
 	meta->arg += p;
 	meta->arg == -1 ? meta->arg = i - 2 : 0;
 	meta->arg == i - 1 ? meta->arg = 0 : 0;
+	meta->pto.x = X0;
+	meta->pto.y = Y0;
 }
