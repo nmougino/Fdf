@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 17:01:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 17:34:41 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 typedef struct		s_data
 {
 	int				*data;
-	size_t			size;
+	int				size;
 	char			*file;
 	struct s_data	*next;
 }					t_data;

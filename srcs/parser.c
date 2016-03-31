@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 00:58:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 16:46:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 17:18:52 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		parser_getdata(int *data, char **tmp)
 	}
 }
 
-static t_data	*extract(fd)
+static t_data	*parser_extract(int fd)
 {
 	t_data	*ans;
 	char	*line;
@@ -70,13 +70,13 @@ t_data			*parser(char *file)
 	cur = NULL;
 	if ((fd = open(file, O_RDONLY)) > 0)
 	{
-		if ((fst = extract(fd)))
+		if ((fst = parser_extract(fd)))
 		{
 			fst->file = ft_strdup(file);
 			cur = fst;
 			while (cur)
 			{
-				cur->next = extract(fd);
+				cur->next = parser_extract(fd);
 				cur = cur->next;
 			}
 		}
