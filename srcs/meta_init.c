@@ -6,21 +6,21 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 02:10:22 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:22:33 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		getdata(t_data **data, int argc, char **argv)
+static void		getdata(t_meta *meta, t_data **data, int argc, char **argv)
 {
 	int		i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (!(data[i - 1] = parser(argv[i])))
-			err_open(i);
+		if ((data[i - 1] = parser(argv[i])))
+			meta->istheredata = 1;
 		i++;
 	}
 	data[i - 1] = NULL;
@@ -49,7 +49,8 @@ t_meta			*meta_init(int argc, char **argv)
 	if ((meta = (t_meta*)ft_memalloc(sizeof(t_meta))) &&
 			(data = (t_data**)ft_memalloc(sizeof(t_data*) * argc)))
 	{
-		getdata(data, argc, argv);
+		meta->istheredata = 0;
+		getdata(meta, data, argc, argv);
 		meta->mlx = mlx_init();
 		meta->win = mlx_new_window(meta->mlx, WINX, WINY, "fdf");
 		meta->img = draw_new_img(meta->mlx, WINX, WINY);

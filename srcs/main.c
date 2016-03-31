@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:41:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 15:13:31 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:21:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ int				main(int argc, char **argv)
 	if (argc > 1)
 	{
 		meta = meta_init(argc, argv);
-		init_hooks(meta);
-		mlx_loop(meta->mlx);
+		if (meta->istheredata == 1)
+		{
+			init_hooks(meta);
+			mlx_loop(meta->mlx);
+		}
+		else
+			ctrl_exit(meta);
 	}
 	else
 		err_input();

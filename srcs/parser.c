@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 00:58:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/29 16:45:41 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:18:52 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,21 @@ t_data			*parser(char *file)
 	cur = NULL;
 	if ((fd = open(file, O_RDONLY)) > 0)
 	{
-		fst = extract(fd);
-		fst->file = ft_strdup(file);
-		cur = fst;
-		while (cur)
+		if ((fst = extract(fd)))
 		{
-			cur->next = extract(fd);
-			cur = cur->next;
+			fst->file = ft_strdup(file);
+			cur = fst;
+			while (cur)
+			{
+				cur->next = extract(fd);
+				cur = cur->next;
+			}
 		}
+		else
+			err_nodata(file);
 		close(fd);
 	}
+	else
+		err_open(file);
 	return (fst);
 }
