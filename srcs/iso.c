@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/30 02:32:19 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 10:48:05 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ static t_px	iso_getcurp(t_meta *meta, t_data *data, size_t x, int y)
 	return (curp);
 }
 
-static void	iso_conv(t_meta *meta,t_px **line, size_t i, size_t prevsize)
+static void	iso_conv(t_meta *meta, t_px **line, size_t i, size_t prevsize)
 {
-	line[1][i] = iso_getcurp(meta, data, i, y);
 	if (meta->graph.x == 0)
 		if (meta->graph.y == 0)
 		{
@@ -59,15 +58,17 @@ static void	iso_conv(t_meta *meta,t_px **line, size_t i, size_t prevsize)
 		{
 			if (i > 0)
 				draw_line_rgb(meta->img, line[1] + i,
-				line[1] + i - 1, 0xFFFFFF);
+						line[1] + i - 1, 0xFFFFFF);
 			if (i < prevsize)
 				draw_line_rgb(meta->img, line[1] + i, line[0] + i, 0xFFFFFF);
 		}
 	else
-		if (meta->gaph.y == 0)
+	{
+		if (meta->graph.y == 0)
 			draw_pixel(meta->img, (*line)[i]);
 		else
 			draw_pixel_rgb(meta->img, (*line)[i], 0xFFFFFF);
+	}
 }
 
 void		iso(t_meta *meta)
@@ -88,7 +89,10 @@ void		iso(t_meta *meta)
 	{
 		i = 0;
 		while (i < data->size)
-			iso_conv(meta, data, i++, prevsize);
+		{
+			line[1][i] = iso_getcurp(meta, data, i, y);
+			iso_conv(meta, line, i++, prevsize);
+		}
 		iso_free(line);
 		line[0] = line[1];
 		prevsize = data->size;
