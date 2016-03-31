@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 02:10:38 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 03:06:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 # define K_B 11
 # define K_H 4
 # define K_J 38
+# define K_F 3
+# define K_G 5
 # define K_MAJG 0x4b
 # define K_PLUS 69
 # define K_MIN 78
@@ -99,5 +101,7 @@ void				ctrl_rot_lr(t_meta *meta, int p);
 void				ctrl_npfile(t_meta *meta, int p);
 
 void				ctrl_hight(t_meta *meta, int p);
+
+void				ctrl_zoom(t_meta *meta, int p);
 
 #endif
