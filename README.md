@@ -23,7 +23,7 @@ BONUS
 | --------------|---------------|
 | multifile		|				|
 | color * hight	| 000point mode	|
-| Z coefficient	| rotation XY	| > remarque de Hugo : XY est tres subjectif. Rotation de la piece ou rotation de la camera? Gestion de deplacement: de la piece ou de la camera.
+| Z coefficient	| rotation XY	|
 | colors shader	|				| > meta init + parametre
 | multitouche	|				|
 | param reset	|				|
