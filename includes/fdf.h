@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/29 17:35:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 02:10:38 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define ZA 1
 
 # define K_ESC 53
+# define K_SPA 49
 # define K_UP 126
 # define K_DO 125
 # define K_LE 123
@@ -88,7 +89,7 @@ void				init_hooks(t_meta *meta);
 void				ctrl_exit(t_meta *meta);
 
 t_meta				*meta_init(int argc, char **argv);
-t_meta				*meta_reset(t_meta *meta);
+void				meta_reset(t_meta *meta);
 
 void				ctrl_trans_ud(t_meta *meta, int p);
 void				ctrl_trans_lr(t_meta *meta, int p);
