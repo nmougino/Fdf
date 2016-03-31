@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 18:23:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:01:08 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct		s_meta
 	int				prevsize;
 	char			istheredata;
 	int				argc;
+	int				zaa;
 }					t_meta;
 
 void				datafree(t_data **fst);
