@@ -34,13 +34,13 @@ static t_px	iso_getcurp(t_meta *meta, t_data *data, size_t x, int y)
 		(meta->pta.y * (y * meta->ptaa.y - x * meta->ptaa.x))
 		+ (-z * meta->coefz);
 	if (z == 0)
-		curp.color = meta->graph.y == 0 ? 0.333 : 0.16;
+		curp.color = meta->graph.y == 0 ? 0.333 : 0;
 	else if (z < 0)
 		curp.color = meta->graph.y == 0 ?
-			0.667 - (0.333 / (1 + ((float)z / 10))) : 0.16;
+			0.667 - (0.333 / (1 + ((float)z / 10))) : 0;
 	else
 		curp.color = meta->graph.y == 0 ?
-			0.333 / (1 + ((float)z / 10)) : 0.16;
+			0.333 / (1 + ((float)z / 10)) : 0;
 	return (curp);
 }
 
@@ -84,7 +84,10 @@ static void	iso_pointed(t_meta *meta, t_data *data, t_px **line)
 		while (i < data->size)
 		{
 			(*line)[i] = iso_getcurp(meta, data, i, y);
-			draw_pixel(meta->img, (*line)[i]);
+			if (meta->gaph.y == 0)
+				draw_pixel(meta->img, (*line)[i]);
+			else
+				draw_pixel_rgb(meta->img, (*line)[i], 0xFFFFFF);
 			i++;
 		}
 		iso_free(line);
