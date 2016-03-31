@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 02:08:55 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 03:05:57 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static int	ctrl_exe(void *param)
 	(meta->ktab[K_RI] == 1) ? ctrl_trans_lr(meta, -1) : 0;
 	(meta->ktab[K_H] == 1 && meta->ktab[K_J] == 0) ? ctrl_hight(meta, 1) : 0;
 	(meta->ktab[K_H] == 0 && meta->ktab[K_J] == 1) ? ctrl_hight(meta, -1) : 0;
+	(meta->ktab[K_F] == 1 && meta->ktab[K_G] == 0) ? ctrl_zoom(meta, 1) : 0;
+	(meta->ktab[K_F] == 0 && meta->ktab[K_G] == 1) ? ctrl_zoom(meta, -1) : 0;
 	//(meta->ktab[] == 1) ? ctrl_zoomi(meta) : 0;
 	//(meta->ktab[] == 1) ? ctrl_zoomo(meta) : 0;
 	//(meta->ktab[47] == 1) ? ctrl_npfile(meta, 1) : 0; //next prev file
