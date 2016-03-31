@@ -26,7 +26,7 @@ static int	kon(int kc, void *param)
 		ctrl_npfile(meta, -1);
 	else if (kc == K_P)
 		meta->graph.x = (meta->graph.x == 0) ? 1 : 0;
-	else if (kc == K_C)
+	else if (kc == K_B)
 		meta->graph.y = (meta->graph.y == 0) ? 1 : 0;
 	else if (kc == K_K)
 		meta->coefz = 0;
