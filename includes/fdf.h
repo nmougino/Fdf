@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 15:46:39 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:22:37 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,13 @@ typedef struct		s_meta
 	int				coefz;
 	t_px			graph;
 	int				prevsize;
+	char			istheredata;
 }					t_meta;
 
 void				datafree(t_data **fst);
 
-void				err_open(int i);
-void				err_nodata(int i);
+void				err_open(char *file);
+void				err_nodata(char *file);
 void				err_input(void);
 
 t_data				*parser(char *file);
