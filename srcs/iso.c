@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 10:48:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 11:03:10 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ static void	iso_conv(t_meta *meta, t_px **line, size_t i, size_t prevsize)
 	else
 	{
 		if (meta->graph.y == 0)
-			draw_pixel(meta->img, (*line)[i]);
+			draw_pixel(meta->img, line[1][i]);
 		else
-			draw_pixel_rgb(meta->img, (*line)[i], 0xFFFFFF);
+			draw_pixel_rgb(meta->img, line[1][i], 0xFFFFFF);
 	}
 }
 
