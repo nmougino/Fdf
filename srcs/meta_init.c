@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 19:01:14 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:13:15 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			meta_reset(t_meta *meta)
 	meta->graph.x = 0;
 	meta->graph.y = 0;
 	meta->coefz = ZA;
-	meta->zaa = ZA;
+	meta->zaa = YA;
 }
 
 t_meta			*meta_init(int argc, char **argv)
