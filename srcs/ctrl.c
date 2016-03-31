@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 16:09:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 17:03:36 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	kon(int kc, void *param)
 {
+	ft_putendl("wef");
 	int		u;
 	t_meta	*meta;
 
@@ -36,6 +37,7 @@ static int	kon(int kc, void *param)
 
 static int	koff(int kc, void *param)
 {
+	ft_putendl("wif");
 	int		u;
 	t_meta	*meta;
 
@@ -72,6 +74,7 @@ static int	ctrl_exe(void *param)
 
 void		init_hooks(t_meta *meta)
 {
+	ctrl_npfile(meta, 0);
 	mlx_hook(meta->win, 2, 3, kon, meta);
 	mlx_key_hook(meta->win, koff, meta);
 	mlx_loop_hook(meta->mlx, ctrl_exe, meta);

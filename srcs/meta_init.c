@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 16:22:33 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 17:02:10 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_meta			*meta_init(int argc, char **argv)
 		meta->data = data;
 		meta->arg = 0;
 		meta_reset(meta);
+		meta->argc = argc;
 		while (i < 127)
 			meta->ktab[i++] = 0;
 	}

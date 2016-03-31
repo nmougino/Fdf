@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 16:22:37 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 17:01:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct		s_meta
 	t_px			graph;
 	int				prevsize;
 	char			istheredata;
+	int				argc;
 }					t_meta;
 
 void				datafree(t_data **fst);
