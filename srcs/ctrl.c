@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 03:05:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:22:14 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	kon(int kc, void *param)
 {
-	int 	u;
+	int		u;
 	t_meta	*meta;
 
 	meta = (t_meta*)param;
@@ -36,7 +36,7 @@ static int	kon(int kc, void *param)
 
 static int	koff(int kc, void *param)
 {
-	int 	u;
+	int		u;
 	t_meta	*meta;
 
 	meta = (t_meta*)param;
@@ -62,14 +62,11 @@ static int	ctrl_exe(void *param)
 	(meta->ktab[K_H] == 0 && meta->ktab[K_J] == 1) ? ctrl_hight(meta, -1) : 0;
 	(meta->ktab[K_F] == 1 && meta->ktab[K_G] == 0) ? ctrl_zoom(meta, 1) : 0;
 	(meta->ktab[K_F] == 0 && meta->ktab[K_G] == 1) ? ctrl_zoom(meta, -1) : 0;
-	//(meta->ktab[] == 1) ? ctrl_zoomi(meta) : 0;
-	//(meta->ktab[] == 1) ? ctrl_zoomo(meta) : 0;
-	//(meta->ktab[47] == 1) ? ctrl_npfile(meta, 1) : 0; //next prev file
-	//(meta->ktab[43] == 1) ? ctrl_npfile(meta, -1) : 0;
 	draw_clear_img(meta->img);
 	iso(meta);
 	mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
-	mlx_string_put(meta->mlx, meta->win, 2, 2, 0x00FF00, meta->data[meta->arg]->file);
+	mlx_string_put(meta->mlx, meta->win,
+			2, 2, 0x00FF00, meta->data[meta->arg]->file);
 	return (0);
 }
 

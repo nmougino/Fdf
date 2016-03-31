@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:18:46 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/29 16:07:51 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:22:48 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	err_input(void)
 	ft_putendl("\033[1m\033[31mERREUR *** AUCUN PARAMETRE");
 	ft_putendl("\033[0m");
 }
+
 void	err_nodata(int i)
 {
 	ft_putendl("\033[1m\033[31mERREUR *** AUCUNE DONNEES");
