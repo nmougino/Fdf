@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 15:22:14 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:09:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	ctrl_exe(void *param)
 	(meta->ktab[K_H] == 0 && meta->ktab[K_J] == 1) ? ctrl_hight(meta, -1) : 0;
 	(meta->ktab[K_F] == 1 && meta->ktab[K_G] == 0) ? ctrl_zoom(meta, 1) : 0;
 	(meta->ktab[K_F] == 0 && meta->ktab[K_G] == 1) ? ctrl_zoom(meta, -1) : 0;
-	draw_clear_img(meta->img);
+	draw_clear_img(meta->img, 0x505050);
 	iso(meta);
 	mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);
 	mlx_string_put(meta->mlx, meta->win,

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 11:03:10 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:52:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void		iso(t_meta *meta)
 {
 	int		y;
 	size_t	i;
-	size_t	prevsize;
 	t_data	*data;
 	t_px	**line;
 
@@ -84,18 +83,18 @@ void		iso(t_meta *meta)
 	data = meta->data[meta->arg];
 	line[0] = NULL;
 	y = 0;
-	prevsize = 0;
+	meta->prevsize = 0;
 	while (data && ((line[1] = (t_px*)malloc(sizeof(t_px) * (data->size + 1)))))
 	{
 		i = 0;
 		while (i < data->size)
 		{
 			line[1][i] = iso_getcurp(meta, data, i, y);
-			iso_conv(meta, line, i++, prevsize);
+			iso_conv(meta, line, i++, meta->prevsize);
 		}
 		iso_free(line);
 		line[0] = line[1];
-		prevsize = data->size;
+		meta->prevsize = data->size;
 		data = data->next;
 		y++;
 	}
