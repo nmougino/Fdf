@@ -10,5 +10,7 @@ BONUS
 | --------------|---------------|
 | multifile		| zoom			|
 | color * hight	| 000point mode	|
-| colors shader	| reset	param	| > meta init + parametre
+| colors shader	|				| > meta init + parametre
 | Z coefficient	| rotation XY	| > remarque de Hugo : XY est tres subjectif. Rotation de la piece ou rotation de la camera? Gestion de deplacement: de la piece ou de la camera.
+| multitouche	|				|
+| param reset	|				|

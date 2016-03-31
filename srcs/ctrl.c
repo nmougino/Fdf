@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/30 03:04:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 02:08:55 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static int	koff(int kc, void *param)
 
 	meta = (t_meta*)param;
 	u = 0;
+	if (kc == K_SPA)
+		meta_reset(meta);
 	if (kc < 0 || kc > 126)
 		return (0);
 	meta->ktab[kc] = 0;
