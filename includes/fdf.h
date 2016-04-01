@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 19:23:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/01 18:50:42 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define WINX 1980
 # define WINY 1080
 
-# define X0 50
-# define Y0 300
+# define X0 100
+# define Y0 600
 # define X0U 10
 # define X0U 10
 
@@ -55,7 +55,6 @@
 # define K_MUL 67
 # define K_CHEVG 43
 # define K_CHEVD 47
-
 
 typedef struct		s_data
 {
