@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/30 02:32:19 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/01 18:49:50 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,80 +32,70 @@ static t_px	iso_getcurp(t_meta *meta, t_data *data, size_t x, int y)
 		(meta->pta.x * (x * meta->ptaa.x + y * meta->ptaa.y));
 	curp.y = meta->pto.y +
 		(meta->pta.y * (y * meta->ptaa.y - x * meta->ptaa.x))
-		+ (-z * meta->coefz);
+		+ (-z * meta->coefz * meta->zaa);
 	if (z == 0)
-		curp.color = meta->graph.y == 0 ? 0.333 : 0.16;
+		curp.color = meta->graph.y == 0 ? 0.333 : 0;
 	else if (z < 0)
 		curp.color = meta->graph.y == 0 ?
-			0.667 - (0.333 / (1 + ((float)z / 10))) : 0.16;
+			0.667 - (0.333 / (1 + ((float)z / 10))) : 0;
 	else
 		curp.color = meta->graph.y == 0 ?
-			0.333 / (1 + ((float)z / 10)) : 0.16;
+			0.333 / (1 + ((float)z / 10)) : 0;
 	return (curp);
 }
 
-static void	iso_loop(t_meta *meta, t_data *data, t_px **line)
+static void	iso_conv(t_meta *meta, t_px **line, size_t i, size_t prevsize)
 {
-	int		y;
-	size_t	i;
-	size_t	prevsize;
-
-	y = 0;
-	prevsize = 0;
-	while (data && ((line[1] = (t_px*)malloc(sizeof(t_px) * (data->size + 1)))))
-	{
-		i = 0;
-		while (i < data->size)
+	if (meta->graph.x == 0)
+		if (meta->graph.y == 0)
 		{
-			line[1][i] = iso_getcurp(meta, data, i, y);
 			if (i > 0)
 				draw_line(meta->img, line[1] + i, line[1] + i - 1);
 			if (i < prevsize)
 				draw_line(meta->img, line[1] + i, line[0] + i);
-			i++;
 		}
-		iso_free(line);
-		line[0] = line[1];
-		prevsize = data->size;
-		data = data->next;
-		y++;
-	}
-}
-
-static void	iso_pointed(t_meta *meta, t_data *data, t_px **line)
-{
-	int		y;
-	size_t	i;
-
-	y = 0;
-	while (data && (((*line) = (t_px*)malloc(sizeof(t_px) * (data->size + 1)))))
-	{
-		i = 0;
-		while (i < data->size)
+		else
 		{
-			(*line)[i] = iso_getcurp(meta, data, i, y);
-			draw_pixel(meta->img, (*line)[i]);
-			i++;
+			if (i > 0)
+				draw_line_rgb(meta->img, line[1] + i,
+						line[1] + i - 1, 0xFFFFFF);
+			if (i < prevsize)
+				draw_line_rgb(meta->img, line[1] + i, line[0] + i, 0xFFFFFF);
 		}
-		iso_free(line);
-		data = data->next;
-		y++;
+	else
+	{
+		if (meta->graph.y == 0)
+			draw_pixel(meta->img, line[1][i]);
+		else
+			draw_pixel_rgb(meta->img, line[1][i], 0xFFFFFF);
 	}
 }
 
 void		iso(t_meta *meta)
 {
+	t_px	datapt;
 	t_data	*data;
 	t_px	**line;
 
+	if (!(line = (t_px**)malloc(sizeof(t_px*) * 2)))
+		return ;
 	data = meta->data[meta->arg];
-	if ((line = (t_px**)malloc(sizeof(t_px*) * 2)))
+	line[0] = NULL;
+	datapt.y = 0;
+	meta->prevsize = 0;
+	while (data && ((line[1] = (t_px*)malloc(sizeof(t_px) * (data->size + 1)))))
 	{
-		line[0] = NULL;
-		if (meta->graph.x == 0)
-			iso_loop(meta, data, line);
-		else
-			iso_pointed(meta, data, line);
+		datapt.x = 0;
+		while (datapt.x < data->size)
+		{
+			line[1][datapt.x] = iso_getcurp(meta, data, datapt.x, datapt.y);
+			iso_conv(meta, line, datapt.x++, meta->prevsize);
+		}
 		iso_free(line);
+		line[0] = line[1];
+		meta->prevsize = data->size;
+		data = data->next;
+		datapt.y++;
 	}
+	iso_free(line);
 }
