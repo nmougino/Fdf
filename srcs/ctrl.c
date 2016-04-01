@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 01:51:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 18:49:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:23:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ static int	kon(int kc, void *param)
 		ctrl_npfile(meta, -1);
 	else if (kc == K_P)
 		meta->graph.x = (meta->graph.x == 0) ? 1 : 0;
-	else if (kc == K_C)
+	else if (kc == K_B)
 		meta->graph.y = (meta->graph.y == 0) ? 1 : 0;
+	else if (kc == K_K)
+		meta->coefz = 0;
+	else if (kc == K_L)
+		meta->coefz = ZA;
 	else if (kc < 0 || kc > 126)
 		return (0);
 	meta->ktab[kc] = 1;
@@ -60,8 +64,8 @@ static int	ctrl_exe(void *param)
 	(meta->ktab[K_RI] == 1) ? ctrl_trans_lr(meta, -1) : 0;
 	(meta->ktab[K_H] == 1 && meta->ktab[K_J] == 0) ? ctrl_hight(meta, 1) : 0;
 	(meta->ktab[K_H] == 0 && meta->ktab[K_J] == 1) ? ctrl_hight(meta, -1) : 0;
-	(meta->ktab[K_F] == 1 && meta->ktab[K_G] == 0) ? ctrl_zoom(meta, 1) : 0;
-	(meta->ktab[K_F] == 0 && meta->ktab[K_G] == 1) ? ctrl_zoom(meta, -1) : 0;
+	(meta->ktab[K_S] == 1 && meta->ktab[K_A] == 0) ? ctrl_zoom(meta, 1) : 0;
+	(meta->ktab[K_S] == 0 && meta->ktab[K_A] == 1) ? ctrl_zoom(meta, -1) : 0;
 	draw_clear_img(meta->img, 0x505050);
 	iso(meta);
 	mlx_put_image_to_window(meta->mlx, meta->win, meta->img->img, 0, 0);

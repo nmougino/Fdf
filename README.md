@@ -9,22 +9,23 @@ CONTROLES
 
 Q ou Echap	: Fin du programme
 Fleches		: Deplacements
-F et G		: Zoom
+A et S		: Zoom
 H et J		: Accentuation
+K			: Reset accentuation
 P			: Toogle l'affichage des lignes
 < et >		: Changement de fichier
-
-actuels en vue de modification
-C			: Couleur unique (actuel jaune, objectif: blanc)
+SPACE		: Reset all
+B			: Couleur unique (actuel jaune, objectif: blanc)
 
 BONUS
 
 | Done	 		| In progress	|
 | --------------|---------------|
-| multifile		|				|
-| color * hight	| 000point mode	|
 | Z coefficient	| rotation XY	|
-| colors shader	|				| > meta init + parametre
+| multifile		|				|
 | multitouche	|				|
+| color * hight	|				|
+| colors shader	|				|
 | param reset	|				|
 | zoom			|				|
+| 000point mode	|				|

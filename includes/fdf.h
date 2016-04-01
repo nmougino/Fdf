@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 18:23:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/01 18:50:42 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define WINX 1980
 # define WINY 1080
 
-# define X0 50
-# define Y0 500
+# define X0 100
+# define Y0 600
 # define X0U 10
 # define X0U 10
 
@@ -36,12 +36,16 @@
 # define K_DO 125
 # define K_LE 123
 # define K_RI 124
+# define K_A 0
+# define K_S 1
 # define K_Q 12
 # define K_C 8
 # define K_P 35
 # define K_B 11
 # define K_H 4
 # define K_J 38
+# define K_K 40
+# define K_L 37
 # define K_F 3
 # define K_G 5
 # define K_MAJG 0x4b
@@ -51,7 +55,6 @@
 # define K_MUL 67
 # define K_CHEVG 43
 # define K_CHEVD 47
-
 
 typedef struct		s_data
 {
@@ -77,6 +80,7 @@ typedef struct		s_meta
 	int				prevsize;
 	char			istheredata;
 	int				argc;
+	int				zaa;
 }					t_meta;
 
 void				datafree(t_data **fst);
