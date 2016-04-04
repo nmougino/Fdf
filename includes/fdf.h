@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/01 18:50:42 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 00:28:33 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 # define WINX 1980
 # define WINY 1080
 
-# define X0 100
-# define Y0 600
-# define X0U 10
 # define X0U 10
 
 # define XA 15
@@ -37,11 +34,13 @@
 # define K_LE 123
 # define K_RI 124
 # define K_A 0
+# define K_B 11
+# define K_D 2
+# define K_F 3
 # define K_S 1
 # define K_Q 12
 # define K_C 8
 # define K_P 35
-# define K_B 11
 # define K_H 4
 # define K_J 38
 # define K_K 40
@@ -81,8 +80,13 @@ typedef struct		s_meta
 	char			istheredata;
 	int				argc;
 	int				zaa;
+	double			angle;
+	double			isocos;
+	double			isosin;
+	t_px			*datamax;
 }					t_meta;
 
+t_px				data_getmax(t_data *data);
 void				datafree(t_data **fst);
 
 void				err_open(char *file);
@@ -110,5 +114,7 @@ void				ctrl_npfile(t_meta *meta, int p);
 void				ctrl_hight(t_meta *meta, int p);
 
 void				ctrl_zoom(t_meta *meta, int p);
+
+void				ctrl_rot(t_meta *meta, int p);
 
 #endif

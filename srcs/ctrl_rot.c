@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ctrlnpfile.c                                       :+:      :+:    :+:   */
+/*   ctrl_rot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/29 16:12:40 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/05 00:34:12 by nmougino         ###   ########.fr       */
+/*   Created: 2016/04/04 22:04:29 by nmougino          #+#    #+#             */
+/*   Updated: 2016/04/05 00:41:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-inline void	ctrl_npfile(t_meta *meta, int p)
+void	ctrl_rot(t_meta *meta, int p)
 {
-	int	i;
-
-	i = meta->argc;
-	meta->arg += p;
-	meta->arg == -1 ? meta->arg = i - 1 : 0;
-	meta->arg == i ? meta->arg = 0 : 0;
-	meta->pto.x = WINX / 2;
-	meta->pto.y = WINY / 2;
-	if (!meta->data[meta->arg])
-		ctrl_npfile(meta, (p == 0) ? 1 : p);
+	meta->angle += (double)p / 1000;
+	meta->isocos = cos((double)(meta->angle / M_PI) * 180);
+	meta->isosin = sin((double)(meta->angle / M_PI) * 180);
 }
