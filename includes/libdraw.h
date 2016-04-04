@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 02:00:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 16:02:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 00:21:22 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # include "mlx.h"
 # include "libft.h"
+# include <math.h>
 
 typedef struct	s_img
 {

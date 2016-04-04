@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:42:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/04 23:16:49 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 00:28:33 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 # define WINX 1980
 # define WINY 1080
 
-# define X0 100
-# define Y0 600
-# define X0U 10
 # define X0U 10
 
 # define XA 15

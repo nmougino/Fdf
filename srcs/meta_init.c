@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/04 23:21:10 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 00:27:26 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void		getdata(t_meta *meta, t_data **data, int argc, char **argv)
 
 void			meta_reset(t_meta *meta)
 {
-	meta->pto.x = X0;
-	meta->pto.y = Y0;
+	meta->pto.x = WINX / 2;
+	meta->pto.y = WINY / 2;
 	meta->pta.x = XA;
 	meta->pta.y = YA;
 	meta->ptaa.x = 1;
@@ -40,7 +40,7 @@ void			meta_reset(t_meta *meta)
 	meta->graph.x = 0;
 	meta->graph.y = 0;
 	meta->coefz = ZA;
-	meta->angle = 0;
+	meta->angle = 270;
 	ctrl_rot(meta, 0);
 	meta->zaa = YA / 2;
 }
