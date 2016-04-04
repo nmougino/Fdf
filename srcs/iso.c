@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/04 23:16:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/04 23:33:25 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	iso_free(t_px **ptr)
 	}
 }
 
-static t_px	iso_getcurp(t_meta *meta, t_data *data, size_t x, int y)
+static t_px	iso_getcurp(t_meta *meta, t_data *data, int x, int y)
 {
 	t_px	curp;
 	int		z;
 
 	z = data->data[x];
-	//x -= (meta->datamax[meta->arg].x / 2);
-	//y -= (meta->datamax[meta->arg].y / 2);
+	x -= (meta->datamax[meta->arg].x / 2);
+	y -= (meta->datamax[meta->arg].y / 2);
 	curp.x = meta->pto.x +
 	(int)(meta->pta.x) * ((x * meta->ptaa.x * meta->isocos) + (y * meta->ptaa.y * meta->isosin));
 	curp.y = meta->pto.y +

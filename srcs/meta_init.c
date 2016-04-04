@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 09:54:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/04 23:16:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/04 23:21:10 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		getdata(t_meta *meta, t_data **data, int argc, char **argv)
 		if ((data[i - 1] = parser(argv[i])))
 		{
 			meta->istheredata = 1;
-			//meta->datamax[i - 1] = data_getmax(data[i - 1]);
+			meta->datamax[i - 1] = data_getmax(data[i - 1]);
 		}
 		i++;
 	}
