@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 00:17:33 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/05 00:41:19 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 16:06:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_px	data_getmax(t_data *data)
 	}
 	return (ans);
 }
+
 void	datafree(t_data **fst)
 {
 	t_data	*cur;
