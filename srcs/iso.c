@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/27 03:25:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/05 00:41:17 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/05 16:07:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,20 @@ static t_px	iso_getcurp(t_meta *meta, t_data *data, int x, int y)
 	x -= (meta->datamax[meta->arg].x / 2);
 	y -= (meta->datamax[meta->arg].y / 2);
 	curp.x = meta->pto.x +
-	(int)(meta->pta.x) * ((x * meta->ptaa.x * meta->isocos) + (y * meta->ptaa.y * meta->isosin));
+	(int)(meta->pta.x) * ((x * meta->ptaa.x * meta->isocos)
+			+ (y * meta->ptaa.y * meta->isosin));
 	curp.y = meta->pto.y +
-	(int)(meta->pta.y) * ((y * meta->ptaa.y * meta->isocos) - (x * meta->ptaa.x * meta->isosin))
+	(int)(meta->pta.y) * ((y * meta->ptaa.y * meta->isocos)
+			- (x * meta->ptaa.x * meta->isosin))
 		+ (-z * meta->coefz * meta->zaa);
 	if (z == 0)
 		curp.color = meta->graph.y == 0 ? 0.333 : 0;
 	else if (z < 0)
+	{
 		curp.color = meta->graph.y == 0 ?
-			0.667 - (0.333 / (1 + ((float)z / 10))) : 0;
+			0.333 * (1 - ((float)z / 20)) : 0;
+		curp.color > 0.667 ? curp.color = 0.667 : 0;
+	}
 	else
 		curp.color = meta->graph.y == 0 ?
 			0.333 / (1 + ((float)z / 10)) : 0;
