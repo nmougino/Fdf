@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 02:59:55 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/06 22:28:51 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/06 22:59:49 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ inline void	ctrl_zoom(t_meta *meta, int p)
 	int	coef;
 
 	coef = 1;
-	if (meta->datamax[meta->arg].x < 50 || meta->datamax[meta->arg].y < 50)
+	if (meta->datamax[meta->arg].x < 300 || meta->datamax[meta->arg].y < 300)
 		coef = 3;
 	((meta->pta.x += (p * meta->coefz) * 3) < 3 * coef) ?
 		meta->pta.x = 3 * coef : meta->pta.x;

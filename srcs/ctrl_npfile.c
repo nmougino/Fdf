@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 16:12:40 by nmougino          #+#    #+#             */
-/*   Updated: 2016/04/05 00:34:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/06 23:02:55 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ inline void	ctrl_npfile(t_meta *meta, int p)
 	meta->pto.y = WINY / 2;
 	if (!meta->data[meta->arg])
 		ctrl_npfile(meta, (p == 0) ? 1 : p);
+	meta_reset(meta);
 }
