@@ -6,11 +6,18 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 00:58:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/31 18:25:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/04/06 22:39:41 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static int		parser_open(char *file)
+{
+	ft_putstr("	Parsing ");
+	ft_putendl(file);
+	return (open(file, O_RDONLY));
+}
 
 static t_data	*newelem(void)
 {
@@ -68,7 +75,7 @@ t_data			*parser(char *file)
 
 	fst = NULL;
 	cur = NULL;
-	if ((fd = open(file, O_RDONLY)) > 0)
+	if ((fd = parser_open(file)) > 0)
 	{
 		if ((fst = parser_extract(fd)))
 		{
