@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/04/06 21:07:36 by nmougino         ###   ########.fr        #
+#    Updated: 2016/04/06 22:11:10 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,7 @@ relib: fclean alllib
 moove:
 	@echo "$(GRA)$(YEL)$(SOU)SPECIAL RULE: $@"
 	mv libmlx/libmlx.a libs/
+	make clean -C libmlx
 	@echo "$(DEF)"
 
 #	Compilation rules
