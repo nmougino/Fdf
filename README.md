@@ -8,6 +8,9 @@ Il est assez rapide
 
 Il parse d'abord tous les fichiers passe en parametre puis affiche le premier. Les fichiers sont donc tous stockes dans la memoire.
 
+USAGE:
+	./fdf <fichier/s>
+	./fdf maps/*
 
 CONTROLES
 
